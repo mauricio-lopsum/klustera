@@ -72,7 +72,6 @@ export default class Dashboard extends React.Component{
     }
     this.setState({[stateKey]: value});
 
-    setTimeout(() => this.fetch(), 100);
   }
 
   changeHour(value, type){
@@ -82,7 +81,6 @@ export default class Dashboard extends React.Component{
     value = Math.min(value, 23);
 
     this.setState({[stateKey]: value});
-    setTimeout(() => this.fetch(), 100);
   }
 
   async fetch(){
@@ -113,9 +111,7 @@ export default class Dashboard extends React.Component{
     return(
       <div className="dashboard">
         <div className="dashboard_topbar dashboard_padme">
-          <div className="dashboard_topbar_logout" onClick={() => window.factory.logout()}>
-            <i className="material-icons">exit_to_app</i>Logout
-          </div>
+
           <div className="dashboard_topbar_container">
             <div className="dashboard_topbar_container_td">
               <div className="dashboard_topbar_container_td_box">
@@ -169,7 +165,7 @@ export default class Dashboard extends React.Component{
               <div className="dashboard_topbar_container_td_box">
                 <div className="dashboard_topbar_container_td_box_label">Refresh</div>
                 <div
-                  onClick={() => this.setInitialValues()}
+                  onClick={() => this.set()}
                   className="dashboard_topbar_container_td_box_button">
                   Refresh
                 </div>
@@ -295,13 +291,13 @@ class FootTraffic extends React.Component{
           label: 'Visits',
           backgroundColor: '#00ee22',
           borderWidth: 0,
-          data: d1
+          data: d2
         },
         {
           label: 'Passersby',
           backgroundColor: '#2c8dff',
           borderWidth: 0,
-          data: d2
+          data: d1
         },
       ],
     };
