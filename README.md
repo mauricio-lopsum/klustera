@@ -1,4 +1,4 @@
-### Klustera test platform
+# Klustera test platform
 
 ## Corriendo la prueba
 

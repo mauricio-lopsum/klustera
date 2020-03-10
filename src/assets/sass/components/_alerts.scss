@@ -1,0 +1,81 @@
+#loader{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999999;
+  background: rgba($dark, 0.9) url('./assets/img/loader.gif') no-repeat center center;
+  background-size: 150px auto;
+  background-blend-mode: saturation;
+}
+
+#alert{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999998;
+  &_bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: rgba($dark, 0.8);
+  }
+  &_box{
+    width: 300px;
+    @extend .cxy;
+    background: $dark;
+    box-sizing: border-box;
+    @extend .card;
+    padding: 1rem;
+    border-top: 3px solid $cyan;
+    animation: animateAlert 1s ease;
+    animation-fill-mode: both;
+
+    @keyframes animateAlert{
+      from{
+        opacity: 0;
+        transform: translate(-40%, -40%) rotate(2deg);
+      }
+      to{
+        opacity: 1;
+        transform: translate(-50%,-50%);
+      }
+    }
+
+    &_title{
+      font-size: 1.7rem;
+      text-transform: uppercase;
+      font-weight: 300;
+      @extend .flex;
+      color: white;
+      align-items: center;
+      i{
+        font-size: 0.8em;
+        color: $cyan;
+        margin-right: 0.5rem;
+      }
+    }
+    &_content{
+      width: 100%;
+      font-size: 1.05rem;
+      color: white;
+      margin: 1.5rem 0;
+    }
+    .alert_box_ctas{
+      @extend .flex;
+      justify-content: flex-end;
+      &_cta{
+        cursor: pointer;
+        background: $cyan;
+        padding: 0.5rem 1rem;
+        color: white;
+        font-weight: 600;
+      }
+    }
+  }
+}
